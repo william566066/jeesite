@@ -43,11 +43,11 @@
 	</ul><br/>
 	<form:form id="inputForm" modelAttribute="article" action="${ctx}/cms/article/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>
-		<tags:message content="${message}"/>
+		<sys:message content="${message}"/>
 		<div class="control-group">
 			<label class="control-label">归属栏目:</label>
 			<div class="controls">
-                <tags:treeselect id="category" name="category.id" value="${article.category.id}" labelName="category.name" labelValue="${article.category.name}"
+                <sys:treeselect id="category" name="category.id" value="${article.category.id}" labelName="category.name" labelValue="${article.category.name}"
 					title="栏目" url="/cms/category/treeData" module="article" selectScopeModule="true" notAllowSelectRoot="false" notAllowSelectParent="true" cssClass="required"/>&nbsp;
                 <span>
                     <input id="url" type="checkbox" onclick="if(this.checked){$('#linkBody').show()}else{$('#linkBody').hide()}$('#link').val()"><label for="url">外部链接</label>
@@ -103,14 +103,14 @@
 			<label class="control-label">缩略图:</label>
 			<div class="controls">
                 <input type="hidden" id="image" name="image" value="${article.imageSrc}" />
-				<tags:ckfinder input="image" type="thumb" uploadPath="/cms/article" selectMultiple="false"/>
+				<sys:ckfinder input="image" type="thumb" uploadPath="/cms/article" selectMultiple="false"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">正文:</label>
 			<div class="controls">
 				<form:textarea id="content" htmlEscape="true" path="articleData.content" rows="4" maxlength="200" class="input-xxlarge"/>
-				<tags:ckeditor replace="content" uploadPath="/cms/article" />
+				<sys:ckeditor replace="content" uploadPath="/cms/article" />
 			</div>
 		</div>
 		<div class="control-group">
@@ -199,7 +199,7 @@
             <div class="control-group">
                 <label class="control-label">自定义内容视图:</label>
                 <div class="controls">
-                      <form:select path="customContentView">
+                      <form:select path="customContentView" class="input-medium">
                           <form:option value="" label="默认视图"/>
                           <form:options items="${contentViewList}" htmlEscape="false"/>
                       </form:select>

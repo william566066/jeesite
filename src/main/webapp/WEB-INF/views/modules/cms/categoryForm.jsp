@@ -32,18 +32,18 @@
 	</ul><br/>
 	<form:form id="inputForm" modelAttribute="category" action="${ctx}/cms/category/save" method="post" class="form-horizontal">
 		<form:hidden path="id"/>
-		<tags:message content="${message}"/>
+		<sys:message content="${message}"/>
 		<div class="control-group">
 			<label class="control-label">归属机构:</label>
 			<div class="controls">
-                <tags:treeselect id="office" name="office.id" value="${category.office.id}" labelName="office.name" labelValue="${category.office.name}"
+                <sys:treeselect id="office" name="office.id" value="${category.office.id}" labelName="office.name" labelValue="${category.office.name}"
 					title="机构" url="/sys/office/treeData" cssClass="required"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">上级栏目:</label>
 			<div class="controls">
-                <tags:treeselect id="category" name="parent.id" value="${category.parent.id}" labelName="parent.name" labelValue="${category.parent.name}"
+                <sys:treeselect id="category" name="parent.id" value="${category.parent.id}" labelName="parent.name" labelValue="${category.parent.name}"
 					title="栏目" url="/cms/category/treeData" extId="${category.id}" cssClass="required"/>
 			</div>
 		</div>
@@ -63,10 +63,10 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label">栏目图片:</label>
+			<label class="control-label">缩略图:</label>
 			<div class="controls">
 				<form:hidden path="image" htmlEscape="false" maxlength="255" class="input-xlarge"/>
-				<tags:ckfinder input="image" type="images" uploadPath="/cms/category"/>
+				<sys:ckfinder input="image" type="thumb" uploadPath="/cms/category"/>
 			</div>
 		</div>
 		<div class="control-group">

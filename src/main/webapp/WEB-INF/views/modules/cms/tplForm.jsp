@@ -31,7 +31,7 @@
 	</ul><br/>
 	<form:form id="inputForm" modelAttribute="template" action="${ctx}/cms/template/save" method="post" class="form-horizontal">
         <form:hidden path="name" />
-		<tags:message content="${message}"/>
+		<sys:message content="${message}"/>
 		<div class="control-group">
 			<label class="control-label">文件名:</label>
 			<div class="controls">
@@ -40,7 +40,7 @@
 		</div>
 		<div class="control-group">
             <form:textarea id="source" path="source" htmlEscape="true" cssStyle="width:100%;height:460px;"/>
-            <%--<tags:ckeditor replace="source" uploadPath="/cms/template" />--%>
+            <%--<sys:ckeditor replace="source" uploadPath="/cms/template" />--%>
 		</div>
 		<div class="form-actions">
 			<shiro:hasPermission name="cms:template:edit"><input id="btnSubmit" class="btn btn-primary" type="submit" value="保 存"/>&nbsp;</shiro:hasPermission>
